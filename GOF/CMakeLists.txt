@@ -1,0 +1,2 @@
+
+add_executable(GoF main.cpp Creational/Singleton.h Creational/Singleton.cpp Creational/Prototype.h common.h Creational/Factory.h Creational/AbstractFactory.h Creational/Builder.h Structural/Proxy.h Structural/Adapter.h Structural/Decorator.h Structural/Flyweight.h)

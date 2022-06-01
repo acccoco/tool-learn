@@ -10,3 +10,5 @@ set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 
 add_subdirectory(lib-example)
 add_subdirectory(data-structure)
+add_subdirectory(unix)
+add_subdirectory(GOF)
