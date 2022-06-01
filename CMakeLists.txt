@@ -8,4 +8,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 
-add_subdirectory(eigen)
+add_subdirectory(lib-example)
+add_subdirectory(data-structure)
