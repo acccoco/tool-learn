@@ -1,1 +1,10 @@
+# mac os
 .DS_Store
+
+# vscode
+.vscode
+build
+
+# idea
+.idea
+cmake-build-debug
