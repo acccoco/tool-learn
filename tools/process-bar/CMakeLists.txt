@@ -1,1 +1,1 @@
-add_executable(process-bar main.cpp)
+add_executable(${PRE}process-bar main.cpp)

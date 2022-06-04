@@ -1,2 +1,1 @@
-add_subdirectory(coretine)
-add_subdirectory(mmap)
+add_sub_dirs()

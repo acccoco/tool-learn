@@ -8,3 +8,7 @@ build
 # idea
 .idea
 cmake-build-debug
+
+
+#
+test

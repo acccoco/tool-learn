@@ -1,1 +1,1 @@
-add_subdirectory(process-bar)
+add_sub_dirs()
