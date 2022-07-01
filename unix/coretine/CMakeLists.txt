@@ -1,5 +1,5 @@
 if (NOT LINUX)
-    message(STATUS "corotinue program can only run on linux.")
+    message(WARNING "[warning] corotinue program can only run on linux.")
     return()
 endif ()
 
