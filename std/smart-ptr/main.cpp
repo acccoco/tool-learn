@@ -47,7 +47,10 @@ private:
 int main()
 {
 
-    auto                  book_lick_your_mouth = std::make_shared<Book>("舔嘴秘方", "???");
+    /// 1. create a shared ptr using std::make_shared
+    auto book_lick_your_mouth = std::make_shared<Book>("舔嘴秘方", "???");
+
+    /// 2. create a shared ptr using raw ptr.
     std::shared_ptr<Book> book_pig;
     {
         auto ptr = new Book("母猪的产后护理", "123");

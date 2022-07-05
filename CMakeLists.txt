@@ -33,6 +33,7 @@ list(FILTER sub_dir_list EXCLUDE REGEX build)
 list(FILTER sub_dir_list EXCLUDE REGEX .vscode)
 list(FILTER sub_dir_list EXCLUDE REGEX .idea)
 list(FILTER sub_dir_list EXCLUDE REGEX .git)
+list(FILTER sub_dir_list EXCLUDE REGEX .github)
 foreach (sub_dir ${sub_dir_list})
     # 排除文件夹
     if (NOT IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${sub_dir})
