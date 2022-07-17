@@ -6,8 +6,6 @@
 /**
  * future 可以从异步操作中获取 value
  */
-
-
 int main()
 {
     // future from a packaged_task

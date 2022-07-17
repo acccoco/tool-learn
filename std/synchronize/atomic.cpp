@@ -1,5 +1,6 @@
 #include <array>
 #include <atomic>
+#include <vector>
 #include <thread>
 #include <utility>
 #include <iostream>
@@ -38,35 +39,32 @@ void is_atomic_example()
 }
 
 
+/**
+ * std::memory_order_relaxed 只适合用来实现原子计数器
+ */
+void increment_counter()
+{
+    std::atomic<int> counter{0};
+
+    auto do_work = [&](int thread_num) {
+        for (int i = 0; i < 10; ++i)
+            counter.fetch_add(1, std::memory_order_relaxed);
+    };
+
+    std::vector<std::thread> threads;
+    int                      thread_cnt = 10;
+    for (int i = 0; i < thread_cnt; ++i)
+        threads.emplace_back(do_work, i);
+    for (int i = 0; i < thread_cnt; ++i)
+        threads[i].join();
+
+
+    std::cout << "final counter value: " << counter.load() << std::endl;
+}
+
+
 int main()
 {
     is_atomic_example();
-
-    std::atomic<long long>   data{10};
-    std::array<long long, 5> arr{};
-
-
-    auto do_work = [&](int thread_num) {
-        // 第二个参数是 std::memory_order
-        arr[thread_num] = data.fetch_add(1, std::memory_order_relaxed);
-    };
-    {
-        std::thread th0{do_work, 0};
-        std::thread th1{do_work, 1};
-        std::thread th2{do_work, 2};
-        std::thread th3{do_work, 3};
-        std::thread th4{do_work, 4};
-        th0.join();
-        th1.join();
-        th2.join();
-        th3.join();
-        th4.join();
-    }
-
-    std::cout << "Result : " << data << '\n';
-
-    for (long long val: arr)
-    {
-        std::cout << "Seen return value : " << val << std::endl;
-    }
+    increment_counter();
 }

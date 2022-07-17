@@ -1,9 +1,9 @@
 set(PRE ${PRE}sync.)
 
-add_executable(${PRE}thread thread.cpp)
-add_executable(${PRE}mutex mutex.cpp)
-add_executable(${PRE}atomic atomic.cpp)
-add_executable(${PRE}yield yield.cpp)
-add_executable(${PRE}condition-variable condition_variable.cpp)
-add_executable(${PRE}semaphore semaphore.cpp)
-add_executable(${PRE}future future.cpp)
+
+file(GLOB source_list RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+foreach (source ${source_list})
+    # 获取文件名，不要 directory，不要最后的扩展名
+    get_filename_component(name ${source} NAME_WLE)
+    add_executable(${PRE}${name} ${source})
+endforeach ()
